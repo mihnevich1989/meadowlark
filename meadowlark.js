@@ -1,5 +1,6 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars');
+const fortune = require('./lib/fortune')
 const app = express()
 
 const hbs = expressHandlebars.create({
@@ -17,7 +18,7 @@ app.set('view engine', 'hbs')
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', (req, res) => res.render('home'))
-app.get('/about', (req, res) => res.render('about'))
+app.get('/about', (req, res) => res.render('about', {fortune: fortune.getFortune()}))
 // custom 404 page
 app.use((req, res) => {
   res.status(404)

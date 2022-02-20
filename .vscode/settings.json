@@ -10,5 +10,5 @@
 	"editor.cursorSmoothCaretAnimation": true,
 	"editor.cursorBlinking": "expand",
 	"editor.wordWrap": "on",
-	"editor.cursorStyle": "block"
+	"editor.cursorStyle": "line"
 }
