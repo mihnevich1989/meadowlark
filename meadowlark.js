@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const expressSession = require('express-session')
 const handlers = require('./lib/handlers')
 const { credentials } = require('./config')
+const flashMiddleware = require('./lib/middleware/flash')
 const app = express()
 
 const hbs = expressHandlebars.create({
@@ -33,6 +34,8 @@ app.use(expressSession({
   saveUninitialized: false,
   secret: credentials.cookieSecret
 }))
+
+app.use(flashMiddleware)
 
 app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({ extended: true }))
